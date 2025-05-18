@@ -2,114 +2,104 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YoungWork SARL - Accueil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YoungWork SARL</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
       color: #333;
     }
-
     header {
-      background-color: #004d99;
-      color: #fff;
-      padding: 20px;
+      background-color: #003366;
+      color: white;
+      padding: 30px 20px;
       text-align: center;
       position: relative;
     }
-
-    .logo {
-      width: 100px;
-      animation: bounce 2s infinite;
+    header img {
+      height: 80px;
+      animation: floatLogo 3s ease-in-out infinite;
     }
-
-    @keyframes bounce {
+    @keyframes floatLogo {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-
     nav {
       display: flex;
       justify-content: center;
-      background-color: #0073e6;
-      padding: 10px;
+      background-color: #0055aa;
       flex-wrap: wrap;
     }
-
     nav a {
-      color: #fff;
-      margin: 5px 15px;
+      color: white;
       text-decoration: none;
+      padding: 15px 20px;
       font-weight: bold;
     }
-
     nav a:hover {
-      text-decoration: underline;
+      background-color: #003f7f;
     }
-
     .language-selector {
       text-align: center;
-      margin: 10px;
+      margin: 15px;
     }
-
-    button {
+    .language-selector button {
+      padding: 8px 15px;
       margin: 0 5px;
-      padding: 5px 10px;
-      background-color: #0073e6;
-      color: #fff;
       border: none;
       border-radius: 5px;
+      background-color: #0077cc;
+      color: white;
       cursor: pointer;
     }
-
-    button:hover {
-      background-color: #005bb5;
+    .language-selector button:hover {
+      background-color: #005fa3;
     }
-
-    .section {
+    section {
       padding: 40px 20px;
-      max-width: 900px;
-      margin: 20px auto;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    footer {
-      background-color: #004d99;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
       margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
     input, textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 20px;
+      padding: 12px;
+      margin: 10px 0;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1em;
     }
-
     form button {
       background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
     }
-
     form button:hover {
       background-color: #218838;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="https://i.postimg.cc/rwKKhcJP/logo-Young-Work-SARL.png" alt="Logo YoungWork SARL" class="logo" />
+    <img src="https://i.postimg.cc/rwKKhcJP/logo-Young-Work-SARL.png" alt="Logo YoungWork SARL" />
     <h1>YoungWork SARL</h1>
-    <p>Construisons Demain, Naturellement.</p>
+    <p>Construisons Demain, Naturellement</p>
   </header>
 
   <div class="language-selector">
@@ -119,48 +109,42 @@
   </div>
 
   <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#apropos">À propos</a>
+    <a href="#about">À propos</a>
     <a href="#services">Nos Services</a>
-    <a href="#realisations">Nos Réalisations</a>
+    <a href="#projects">Nos Réalisations</a>
     <a href="#contact">Contactez-nous</a>
   </nav>
 
-  <section class="section" id="apropos">
+  <section id="about">
     <h2>À propos</h2>
-    <p id="aboutText">
-      YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques tels que la construction, le génie civil, l'aménagement paysager, le nettoyage, la sécurité, la location de matériel et la maintenance industrielle.
-      Grâce à notre expertise et notre engagement envers la qualité, nous proposons des solutions sur mesure qui répondent aux besoins les plus complexes de nos clients.
-      Notre mission est de bâtir des environnements sûrs, modernes et durables tout en répondant aux besoins spécifiques de nos clients.
-      Nous visons à devenir un partenaire de confiance, en livrant des projets de haute qualité avec un engagement envers l'innovation et la durabilité.
-    </p>
+    <p id="aboutText">YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...</p>
   </section>
 
-  <section class="section" id="services">
+  <section id="services">
     <h2>Nos Services</h2>
     <ul>
-      <li><strong>Construction & Génie Civil :</strong> Réalisation de projets complets, gros œuvre et second œuvre, livraison clé en main.</li>
-      <li><strong>🌿 Aménagement Paysager & Nettoyage :</strong> Création de parcs et jardins, entretien des espaces verts, nettoyage industriel et gardiennage.</li>
-      <li><strong>🛠️ Location de Matériel :</strong> Grues, camions, outils électriques, maintenance et assistance technique.</li>
-      <li><strong>🔧 Maintenance Industrielle :</strong> Inspection, réparation et optimisation des performances.</li>
+      <li><strong>🏗️ Construction & Génie Civil:</strong> Réalisation de projets complets, livraison clé en main.</li>
+      <li><strong>🌿 Aménagement Paysager & Nettoyage:</strong> Création et entretien, gardiennage.</li>
+      <li><strong>🛠️ Location de Matériel:</strong> Grues, camions, outils, assistance technique.</li>
+      <li><strong>🔧 Maintenance Industrielle:</strong> Inspection, réparation, optimisation.</li>
     </ul>
   </section>
 
-  <section class="section" id="realisations">
+  <section id="projects">
     <h2>Nos Réalisations</h2>
-    <p>لزالت الشركة حديثة النشأة</p>
+    <p>📌 L’entreprise est encore jeune, les projets seront publiés prochainement.</p>
   </section>
 
-  <section class="section" id="contact">
+  <section id="contact">
     <h2 id="contactTitle">Contactez-nous</h2>
-    <p>MEARADI Fakhreddine - Téléphone: +212 666 257 924</p>
-    <p>RAQI Mouhcine - Téléphone: +212 603 052 072</p>
-    <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
-    <p>GRAIDI Mohammed - Téléphone: +212 641 681 312</p>
+    <p>MEARADI Fakhreddine - 📞 +212 666 257 924</p>
+    <p>RAQI Mouhcine - 📞 +212 603 052 072</p>
+    <p>MAACH Mouhcine - 📞 +212 624 438 135</p>
+    <p>GRAIDI Mohammed - 📞 +212 641 681 312</p>
 
     <form action="https://formspree.io/f/mldbvrnj" method="POST">
-      <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre e-mail" required />
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre e-mail" required>
       <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
@@ -173,17 +157,17 @@
   <script>
     const texts = {
       fr: {
-        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...",
-        contact: "Contactez-nous"
+        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques tels que la construction, le génie civil, l'aménagement paysager, le nettoyage, la sécurité, la location de matériel et la maintenance industrielle.",
+        contact: "Contactez-nous",
       },
       ar: {
-        about: "YoungWork SARL هي شركة ديناميكية ومبتكرة تنشط في مجالات متعددة...",
-        contact: "اتصل بنا"
+        about: "شركة YoungWork SARL هي شركة ديناميكية ومبتكرة تنشط في عدة قطاعات استراتيجية مثل البناء، الهندسة المدنية، تهيئة المساحات الخضراء، التنظيف، الأمن، تأجير المعدات والصيانة الصناعية.",
+        contact: "اتصل بنا",
       },
       ber: {
-        about: "YoungWork SARL d tasga n tgrawla d tisselmad deg wayen n temdint...",
-        contact: "ⴰⵣⵓⵍ ⵏⵓ"
-      }
+        about: "YoungWork SARL d taddart n tmurti akked tuddsa deg waṭas n isektar: taɣiwant, tawilint n tmurt, uselmed, tḥennust, tasuqilt, akked asefru n imudan.",
+        contact: "ⴰⴷⴷⴰⵔ ⵏⵓ",
+      },
     };
 
     function changeLanguage(lang) {
@@ -191,6 +175,5 @@
       document.getElementById("contactTitle").innerText = texts[lang].contact;
     }
   </script>
-
 </body>
 </html>
