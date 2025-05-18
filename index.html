@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YoungWork SARL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Noto Sans', Arial, sans-serif;
@@ -95,11 +95,30 @@
       color: white;
       margin-top: 40px;
     }
+    /* زر واتساب ثابت */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
+    .whatsapp-button:hover {
+      background-color: #1ebe57;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.postimg.cc/rwKKhcJP/logo-Young-Work-SARL.png" alt="Logo YoungWork SARL">
+    <img src="https://i.postimg.cc/rwKKhcJP/logo-Young-Work-SARL.png" alt="Logo YoungWork SARL" />
     <h1>YoungWork SARL</h1>
     <p>Construisons Demain, Naturellement.</p>
   </header>
@@ -158,6 +177,11 @@
     © 2025 YoungWork SARL - Tous droits réservés
   </footer>
 
+  <!-- زر واتساب مباشر -->
+  <a href="https://wa.me/212666257924" target="_blank" class="whatsapp-button" aria-label="WhatsApp Chat">
+    💬 WhatsApp
+  </a>
+
   <script>
     const texts = {
       fr: {
@@ -183,20 +207,5 @@
       document.getElementById("contactTitle").innerText = texts[lang].contact;
     }
   </script>
-
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/682a6ba4f062c51916e07f5a/1irir8umf';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-
 </body>
 </html>
