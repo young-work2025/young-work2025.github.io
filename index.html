@@ -1,193 +1,154 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>YoungWork SARL - Accueil</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            direction: ltr;
-            text-align: left;
-        }
-        header {
-            background-color: #004d99;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            animation: logoBounce 2s infinite;
-        }
-        @keyframes logoBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #0073e6;
-            padding: 10px;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .language-selector {
-            text-align: center;
-            margin: 10px;
-        }
-        button {
-            margin: 0 5px;
-            padding: 5px 10px;
-            background-color: #0073e6;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #005bb5;
-        }
-        .section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #004d99;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YoungWork SARL - Accueil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #004d99;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      animation: logoBounce 2s infinite;
+    }
+    @keyframes logoBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #0073e6;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .language-selector {
+      text-align: center;
+      margin: 10px;
+    }
+    button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      background-color: #0073e6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+    .section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background-color: #004d99;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      background-color: #28a745;
+    }
+    form button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>YoungWork SARL</h1>
-        <p>Construisons Demain, Naturellement.</p>
-    </header>
+  <header>
+    <h1>YoungWork SARL</h1>
+    <p>Construisons Demain, Naturellement.</p>
+  </header>
 
-    <div class="language-selector">
-        <button onclick="changeLanguage('fr')">Français</button>
-        <button onclick="changeLanguage('ar')">العربية</button>
-        <button onclick="changeLanguage('ber')">ⴰⵎⴰⵣⵉⵖ</button>
-    </div>
+  <div class="language-selector">
+    <button onclick="changeLanguage('fr')">Français</button>
+    <button onclick="changeLanguage('ar')">العربية</button>
+    <button onclick="changeLanguage('ber')">ⴰⵎⴰⵣⵉⵖ</button>
+  </div>
 
-    <nav>
-        <a id="nav-accueil" href="#">Accueil</a>
-        <a id="nav-apropos" href="#">À propos</a>
-        <a id="nav-services" href="#">Nos Services</a>
-        <a id="nav-realisations" href="#">Nos Réalisations</a>
-        <a id="nav-contact" href="#">Contactez-nous</a>
-    </nav>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">À propos</a>
+    <a href="#">Nos Services</a>
+    <a href="#">Nos Réalisations</a>
+    <a href="#contactSection">Contactez-nous</a>
+  </nav>
 
-    <section class="section" id="section-apropos">
-        <h2>À propos</h2>
-        <p>YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques tels que la construction, le génie civil, l'aménagement paysager, le nettoyage, la sécurité, la location de matériel et la maintenance industrielle. Grâce à notre expertise et notre engagement envers la qualité, nous proposons des solutions sur mesure qui répondent aux besoins les plus complexes de nos clients.</p>
-    </section>
+  <section class="section">
+    <h2>À propos</h2>
+    <p id="aboutText">YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...</p>
+  </section>
 
-    <section class="section" id="section-services" style="display:none;">
-        <h2>Nos Services</h2>
-        <ul>
-            <li><strong>Construction & Génie Civil:</strong> Réalisation de projets complets, gros œuvre et second œuvre, livraison clé en main.</li>
-            <li>🌿 <strong>Aménagement Paysager & Nettoyage:</strong> Création de parcs et jardins, entretien des espaces verts, nettoyage industriel et gardiennage.</li>
-            <li>🛠️ <strong>Location de Matériel:</strong> Grues, camions, outils électriques, maintenance et assistance technique.</li>
-            <li>🔧 <strong>Maintenance Industrielle:</strong> Inspection, réparation et optimisation des performances.</li>
-        </ul>
-    </section>
+  <section class="section" id="contactSection">
+    <h2 id="contactTitle">Contactez-nous</h2>
+    <p>MEARADI Fakhreddine - Téléphone: +212 666 257 924</p>
+    <p>RAQI Mouhcine - Téléphone: +212 603 052 072</p>
+    <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
+    <p>GRAIDI Mohammed - Téléphone: +212 641 681 312</p>
 
-    <section class="section" id="section-realisations" style="display:none;">
-        <h2>Nos Réalisations</h2>
-        <p>ℹ️ La société est encore jeune et en pleine expansion.</p>
-    </section>
+    <form action="https://formspree.io/f/xxxxxxxx" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre e-mail" required />
+      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
 
-    <section class="section" id="section-contact" style="display:none;">
-        <h2>Contactez-nous</h2>
-        <p>MEARADI Fakhreddine - Téléphone: +212 666 257 924</p>
-        <p>RAQI Mouhcine - Téléphone: +212 603 052 072</p>
-        <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
-        <p>GRAIDI Mohammed - Téléphone: +212 641 681 312</p>
-    </section>
+  <footer>
+    © 2025 YoungWork SARL - Tous droits réservés
+  </footer>
 
-    <footer>
-        © 2025 YoungWork SARL - Tous droits réservés
-    </footer>
+  <script>
+    const texts = {
+      fr: {
+        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...",
+        contact: "Contactez-nous",
+      },
+      ar: {
+        about: "YoungWork SARL هي شركة ديناميكية ومبتكرة تنشط في عدة مجالات استراتيجية...",
+        contact: "اتصل بنا",
+      },
+      ber: {
+        about: "YoungWork SARL d yan taddart n tsnaḍfi deg kra n yimanen imudan...",
+        contact: "ⴰⴷⴷⴰⵔⴰⵏ ⵏⵓ",
+      },
+    };
 
-<script>
-  const texts = {
-    fr: {
-      accueil: "Accueil",
-      apropos: "À propos",
-      services: "Nos Services",
-      realisations: "Nos Réalisations",
-      contact: "Contactez-nous",
-      titreApropos: "À propos",
-      texteApropos: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques tels que la construction, le génie civil, l'aménagement paysager, le nettoyage, la sécurité, la location de matériel et la maintenance industrielle. Grâce à notre expertise et notre engagement envers la qualité, nous proposons des solutions sur mesure qui répondent aux besoins les plus complexes de nos clients.",
-      titreServices: "Nos Services",
-      listeServices: [
-        "Construction & Génie Civil: Réalisation de projets complets, gros œuvre et second œuvre, livraison clé en main.",
-        "🌿 Aménagement Paysager & Nettoyage: Création de parcs et jardins, entretien des espaces verts, nettoyage industriel et gardiennage.",
-        "🛠️ Location de Matériel: Grues, camions, outils électriques, maintenance et assistance technique.",
-        "🔧 Maintenance Industrielle: Inspection, réparation et optimisation des performances."
-      ],
-      titreRealisations: "Nos Réalisations",
-      texteRealisations: "ℹ️ La société est encore jeune et en pleine expansion.",
-      titreContact: "Contactez-nous",
-      contacts: [
-        "MEARADI Fakhreddine - Téléphone: +212 666 257 924",
-        "RAQI Mouhcine - Téléphone: +212 603 052 072",
-        "MAACH Mouhcine - Téléphone: +212 624 438 135",
-        "GRAIDI Mohammed - Téléphone: +212 641 681 312"
-      ],
-      footer: "© 2025 YoungWork SARL - Tous droits réservés",
-      slogan: "Construisons Demain, Naturellement."
-    },
-    ar: {
-      accueil: "الرئيسية",
-      apropos: "من نحن",
-      services: "خدماتنا",
-      realisations: "مشاريعنا",
-      contact: "اتصل بنا",
-      titreApropos: "من نحن",
-      texteApropos: "شركة YoungWork SARL ديناميكية ومبتكرة تعمل في عدة قطاعات استراتيجية مثل البناء، الهندسة المدنية، تنسيق الحدائق، التنظيف، الأمن، تأجير المعدات والصيانة الصناعية. بفضل خبرتنا والتزامنا بالجودة، نقدم حلولًا مخصصة تلبي أكثر احتياجات عملائنا تعقيدًا.",
-      titreServices: "خدماتنا",
-      listeServices: [
-        "البناء والهندسة المدنية: تنفيذ مشاريع كاملة، أعمال الهيكل وأعمال التشطيب، التسليم المفتاح في اليد.",
-        "🌿 تنسيق الحدائق والتنظيف: إنشاء المنتزهات والحدائق، صيانة المساحات الخضراء، التنظيف الصناعي والحراسة.",
-        "🛠️ تأجير المعدات: رافعات، شاحنات، أدوات كهربائية، الصيانة والدعم الفني.",
-        "🔧 الصيانة الصناعية: التفتيش، الإصلاح وتحسين الأداء."
-      ],
-      titreRealisations: "مشاريعنا",
-      texteRealisations: "ℹ️ الشركة لا تزال حديثة النشأة وفي توسع مستمر.",
-      titreContact: "اتصل بنا",
-      contacts: [
-        "فخر الدين معراضي - الهاتف: +212 666 257 924",
-        "محسن الراقي - الهاتف: +212 603 052 072",
-        "محسن معاش - الهاتف: +212 624 438 135",
-        "محمد الغريدي - الهاتف: +212 641 681 312"
-      ],
-      footer: "© 2025 YoungWork SARL - جميع الحقوق محفوظة",
-      slogan: "نبني المستقبل، بشكل طبيعي."
-    },
-    ber: {
-      accueil: "ⴰⵙⵙⴰⵍ",
-      apropos: "ⴰⵙⵉⵏⴰ",
-      services: "ⴰⵎⴰⵣⵉⵖ",
-      realisations: "ⵏ ⵢⵢⵓⵙⵙⵓ",
-      contact: "ⵢⴰⵔⵔⵓ",
-      titreApropos: "ⴰⵙⵉⵏⴰ",
-      texteApropos: "YoungWork SARL ⵢⵢⴰ ⵉⵎⴰⵣⵉⵖ ⵓⵏⴰⵙⵙⵉ ⵏⴰⵡⴰ ⵢⴰ ⴷⴷⵓⵙⵙⴰ ⵙⴳⵔⴰⵎⴰ ⵙⵙⴰⵎ ⴰⵙⵎ
+    function changeLanguage(lang) {
+      document.getElementById("aboutText").innerText = texts[lang].about;
+      document.getElementById("contactTitle").innerText = texts[lang].contact;
+    }
+  </script>
+</body>
+</html>
