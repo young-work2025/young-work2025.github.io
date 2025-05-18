@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YoungWork SARL</title>
+  <title>YoungWork SARL - Accueil</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,39 +17,63 @@
       color: #fff;
       padding: 20px;
       text-align: center;
+      animation: logoBounce 2s infinite;
+    }
+    header img {
+      width: 80px;
+      height: auto;
+      animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
     }
     nav {
       display: flex;
       justify-content: center;
       background-color: #0073e6;
       padding: 10px;
+      flex-wrap: wrap;
     }
     nav a {
       color: #fff;
-      margin: 0 15px;
+      margin: 5px 10px;
       text-decoration: none;
       font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     .language-selector {
       text-align: center;
       margin: 10px;
     }
-    .language-selector button {
-      margin: 0 5px;
-      padding: 5px 10px;
+    button {
+      margin: 5px;
+      padding: 8px 15px;
       background-color: #0073e6;
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
+    button:hover {
+      background-color: #005bb5;
+    }
     .section {
       padding: 40px 20px;
       max-width: 900px;
-      margin: auto;
+      margin: 20px auto;
       background-color: white;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background-color: #004d99;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
     }
     input, textarea {
       width: 100%;
@@ -61,25 +85,17 @@
     }
     form button {
       background-color: #28a745;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
     }
-    footer {
-      background-color: #004d99;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
+    form button:hover {
+      background-color: #218838;
     }
   </style>
 </head>
 <body>
   <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Logo_YW.svg/200px-Logo_YW.svg.png" alt="Logo" />
     <h1>YoungWork SARL</h1>
-    <p id="slogan">Construisons Demain, Naturellement.</p>
+    <p>Construisons Demain, Naturellement.</p>
   </header>
 
   <div class="language-selector">
@@ -91,14 +107,29 @@
   <nav>
     <a href="#">Accueil</a>
     <a href="#">À propos</a>
-    <a href="#">Services</a>
-    <a href="#">Réalisations</a>
-    <a href="#contactSection" id="contactNav">Contact</a>
+    <a href="#">Nos Services</a>
+    <a href="#">Nos Réalisations</a>
+    <a href="#contactSection">Contactez-nous</a>
   </nav>
 
   <section class="section">
-    <h2 id="aboutTitle">À propos</h2>
+    <h2>À propos</h2>
     <p id="aboutText">YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...</p>
+  </section>
+
+  <section class="section">
+    <h2>Nos Services</h2>
+    <ul>
+      <li>🧱 Construction & Génie Civil</li>
+      <li>🌿 Aménagement & Nettoyage</li>
+      <li>🚜 Location de Matériel</li>
+      <li>🔧 Maintenance Industrielle</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Nos Réalisations</h2>
+    <p id="projectsText">L'entreprise est encore jeune mais ambitieuse.</p>
   </section>
 
   <section class="section" id="contactSection">
@@ -109,10 +140,10 @@
     <p>GRAIDI Mohammed - +212 641 681 312</p>
 
     <form action="https://formspree.io/f/mldbvrnj" method="POST">
-      <input type="text" name="name" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre e-mail" required>
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre e-mail" required />
       <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-      <button type="submit" id="sendButton">Envoyer</button>
+      <button type="submit">Envoyer</button>
     </form>
   </section>
 
@@ -123,40 +154,40 @@
   <script>
     const texts = {
       fr: {
-        slogan: "Construisons Demain, Naturellement.",
-        aboutTitle: "À propos",
-        aboutText: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...",
-        contactTitle: "Contactez-nous",
-        sendButton: "Envoyer",
-        contactNav: "Contact",
+        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques tels que la construction, le génie civil, l'aménagement paysager, le nettoyage, la sécurité, la location de matériel et la maintenance industrielle.",
+        contact: "Contactez-nous",
+        projects: "L'entreprise est encore jeune mais ambitieuse."
       },
       ar: {
-        slogan: "لنُشيّد الغد بطبيعتنا.",
-        aboutTitle: "من نحن",
-        aboutText: "YoungWork SARL هي شركة ديناميكية ومبتكرة تنشط في عدة مجالات استراتيجية...",
-        contactTitle: "اتصل بنا",
-        sendButton: "إرسال",
-        contactNav: "اتصال",
+        about: "شركة YoungWork SARL هي شركة مبتكرة تعمل في مجالات متعددة مثل البناء، الهندسة المدنية، التنظيف، الحراسة، صيانة المعدات والمساحات الخضراء.",
+        contact: "اتصل بنا",
+        projects: "الشركة لا تزال حديثة النشأة لكنها طموحة."
       },
       ber: {
-        slogan: "ⴰⴷⴷⴰⵔ ⵏ ⴰⵙⵙⴰ ⵏ ⵓⴳⴻⴷ ⵏ ⵜⵉⵏⵏⵉⵜ.",
-        aboutTitle: "ⴰⵏⴰⵎⴰⵙ",
-        aboutText: "YoungWork SARL d taddart n tsnaḍfi deg yimanen imudan, s ugaru n usnifel akked tneflit...",
-        contactTitle: "ⴰⴷⴷⴰⵔ ⵏⵓ",
-        sendButton: "ⵙⵏⵓ",
-        contactNav: "ⴰⴷⴷⴰⵔ",
+        about: "YoungWork SARL d tamsalt tazzayt, tettwaslen deg usnifel n weḥraj, tawuri, temnadt n tmurt, taggayt, akked uselkim n yifus.",
+        contact: "ⴰⴷⴷⴰⵔ ⵏⵓ",
+        projects: "Tamdint tazza nniḍen, yella tassnaḍt ur tesqill ara yettḥebb."
       }
     };
 
     function changeLanguage(lang) {
-      const t = texts[lang];
-      document.getElementById("slogan").innerText = t.slogan;
-      document.getElementById("aboutTitle").innerText = t.aboutTitle;
-      document.getElementById("aboutText").innerText = t.aboutText;
-      document.getElementById("contactTitle").innerText = t.contactTitle;
-      document.getElementById("sendButton").innerText = t.sendButton;
-      document.getElementById("contactNav").innerText = t.contactNav;
+      document.getElementById("aboutText").innerText = texts[lang].about;
+      document.getElementById("contactTitle").innerText = texts[lang].contact;
+      document.getElementById("projectsText").innerText = texts[lang].projects;
     }
+  </script>
+
+  <!-- Tawk.to chatbot (gratuit) -->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6650c541981b6c564774d290/1hvvbl84h';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
   </script>
 </body>
 </html>
