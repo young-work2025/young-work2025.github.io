@@ -1,164 +1,129 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YoungWork SARL - Accueil</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #004d99;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      animation: logoBounce 2s infinite;
-    }
-    @keyframes logoBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #0073e6;
-      padding: 10px;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .language-selector {
-      text-align: center;
-      margin: 10px;
-    }
-    button {
-      margin: 0 5px;
-      padding: 5px 10px;
-      background-color: #0073e6;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005bb5;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 20px auto;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    footer {
-      background-color: #004d99;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    form button {
-      background-color: #28a745;
-    }
-    form button:hover {
-      background-color: #218838;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>YoungWork SARL</h1>
-    <p id="slogan">Construisons Demain, Naturellement.</p>
-  </header>
+<!DOCTYPE html>  
+<html lang="fr">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>YoungWork SARL - Accueil</title>  
+  <style>  
+    body {  
+      font-family: Arial, sans-serif, "Times New Roman", "Arial Unicode MS", Tahoma, "Liberation Sans", "Noto Sans";  
+      margin: 0;  
+      padding: 0;  
+      background-color: #f4f4f4;  
+      color: #333;  
+    }  
+    header {  
+      background-color: #004d99 ;  
+      color: #fff;  
+      padding: 20px;  
+      text-align: center;  
+      animation: logoBounce 2s infinite;  
+    }  
+    @keyframes logoBounce {  
+      0%, 100% { transform: translateY(0); }  
+      50% { transform: translateY(-10px); }  
+    }  
+    nav {  
+      display: flex;  
+      justify-content: center;  
+      background-color: #0073e6;  
+      padding: 10px;  
+    }  
+    nav a {  
+      color: #fff;  
+      margin: 0 15px;  
+      text-decoration: none;  
+      font-weight: bold;  
+    }  
+    nav a:hover {  
+      text-decoration: underline;  
+    }  
+    .language-selector {  
+      text-align: center;  
+      margin: 10px;  
+    }  
+    button {  
+      margin: 0 5px;  
+      padding: 5px 10px;  
+      background-color: #0073e6;  
+      color: #fff;  
+      border: none;  
+      border-radius: 5px;  
+      cursor: pointer;  
+      font-size: 14px;  
+    }  
+    button:hover {  
+      background-color: #005bb5;  
+    }  
+    .section {  
+      padding: 40px 20px;  
+      max-width: 900px;  
+      margin: 20px auto;  
+      background-color: white;  
+      border-radius: 10px;  
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    }  
+    footer {  
+      background-color: #004d99;  
+      color: #fff;  
+      text-align: center;  
+      padding: 15px;  
+      margin-top: 20px;  
+    }  
+    input, textarea {  
+      width: 100%;  
+      padding: 10px;  
+      margin-top: 10px;  
+      margin-bottom: 20px;  
+      border: 1px solid #ccc;  
+      border-radius: 5px;  
+      font-family: Arial, sans-serif;  
+    }  
+    form button {  
+      background-color: #28a745;  
+      padding: 10px 15px;  
+      border: none;  
+      border-radius: 5px;  
+      color: #fff;  
+      cursor: pointer;  
+      font-size: 16px;  
+    }  
+    form button:hover {  
+      background-color: #218838;  
+    }  
+  </style>  
+</head>  
+<body>  
+  <header>  
+    <h1>YoungWork SARL</h1>  
+    <p id="slogan">Construisons Demain, Naturellement.</p>  
+  </header>  
 
-  <div class="language-selector">
-    <button onclick="changeLanguage('fr')">Français</button>
-    <button onclick="changeLanguage('ar')">العربية</button>
-    <button onclick="changeLanguage('ber')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>
-  </div>
+  <!-- اختيار اللغة -->  
+  <div class="language-selector">  
+    <button onclick="changeLanguage('fr')">Français</button>  
+    <button onclick="changeLanguage('ar')">العربية</button>  
+    <button onclick="changeLanguage('ber')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>  
+  </div>  
 
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#">À propos</a>
-    <a href="#">Services</a>
-    <a href="#">Réalisations</a>
-    <a href="#contactSection">Contact</a>
-  </nav>
+  <!-- قائمة التنقل -->  
+  <nav>  
+    <a href="#">Accueil</a>  
+    <a href="#">À propos</a>  
+    <a href="#">Services</a>  
+    <a href="#">Réalisations</a>  
+    <a href="#contactSection">Contact</a>  
+  </nav>  
 
-  <section class="section">
-    <h2 id="aboutTitle">À propos</h2>
-    <p id="aboutText">
-      YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...
-    </p>
-  </section>
+  <!-- قسم حول الشركة -->  
+  <section class="section">  
+    <h2 id="aboutTitle">À propos</h2>  
+    <p id="aboutText">  
+      YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...  
+    </p>  
+  </section>  
 
-  <section class="section" id="contactSection">
-    <h2 id="contactTitle">Contactez-nous</h2>
-    <p>MEARADI Fakhreddine - Téléphone: +212 666 257 924</p>
-    <p>RAQI Mouhcine - Téléphone: +212 603 052 072</p>
-    <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
-    <p>GRAIDI Mohammed - Téléphone: +212 641 681 312</p>
-
-    <form action="https://formspree.io/f/mldbvrnj" method="POST">
-      <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre e-mail" required />
-      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
-
-  <footer>
-    © 2025 YoungWork SARL - Tous droits réservés
-  </footer>
-
-  <script>
-    const texts = {
-      fr: {
-        slogan: "Construisons Demain, Naturellement.",
-        aboutTitle: "À propos",
-        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...",
-        contact: "Contactez-nous",
-      },
-      ar: {
-        slogan: "نبني الغد بشكل طبيعي.",
-        aboutTitle: "من نحن",
-        about: "YoungWork SARL هي شركة ديناميكية ومبتكرة تعمل في عدة مجالات استراتيجية...",
-        contact: "اتصل بنا",
-      },
-      ber: {
-        slogan: "ⴰⵙⵓⵍⵍ ⴰⵙⴰⵏⴰⵎ ⴰⵎⵙⴻⵏⴰⵡ ⵓⵎⴰⵣⵉⵖ.",
-        aboutTitle: "ⴰⵏⵙⵙⵓ ⵏ ⵉⵏⵖ",
-        about: "YoungWork SARL d tasga tusnakt d tudert tisusna tettwamed deg kra n yimanen imudan...",
-        contact: "ⴰⴷⴷⴰⵔ ⵏⵓ",
-      },
-    };
-
-    function changeLanguage(lang) {
-      document.getElementById("slogan").innerText = texts[lang].slogan;
-      document.getElementById("aboutTitle").innerText = texts[lang].aboutTitle;
-      document.getElementById("aboutText").innerText = texts[lang].about;
-      document.getElementById("contactTitle").innerText = texts[lang].contact;
-    }
-  </script>
-</body>
-</html>
+  <!-- قسم الاتصال -->  
+  <section class="section" id="contactSection">  
+    <h2 id="contactTitle">Contactez-nous</h2>  
+   
