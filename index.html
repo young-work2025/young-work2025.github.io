@@ -2,19 +2,18 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YoungWork SARL - Accueil</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background-color: #f4f4f4;
       color: #333;
     }
     header {
       background-color: #004d99;
-      color: #fff;
+      color: white;
       padding: 20px;
       text-align: center;
       animation: logoBounce 2s infinite;
@@ -30,7 +29,7 @@
       padding: 10px;
     }
     nav a {
-      color: #fff;
+      color: white;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
@@ -42,16 +41,16 @@
       text-align: center;
       margin: 10px;
     }
-    button {
+    button.lang-btn {
       margin: 0 5px;
       padding: 5px 10px;
       background-color: #0073e6;
-      color: #fff;
+      color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
+    button.lang-btn:hover {
       background-color: #005bb5;
     }
     .section {
@@ -60,32 +59,40 @@
       margin: 20px auto;
       background-color: white;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-family: Arial, sans-serif;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     footer {
       background-color: #004d99;
-      color: #fff;
+      color: white;
       text-align: center;
       padding: 15px;
       margin-top: 20px;
     }
+    form {
+      max-width: 400px;
+      margin: 20px auto 0;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
     input, textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
+      margin-bottom: 15px;
       border-radius: 5px;
-      font-family: Arial, sans-serif;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
     }
     form button {
       background-color: #28a745;
       color: white;
-      font-weight: bold;
       border: none;
+      padding: 12px;
+      width: 100%;
       border-radius: 5px;
-      padding: 10px 20px;
+      font-size: 18px;
       cursor: pointer;
     }
     form button:hover {
@@ -94,15 +101,16 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>YoungWork SARL</h1>
     <p>Construisons Demain, Naturellement.</p>
   </header>
 
   <div class="language-selector">
-    <button onclick="changeLanguage('fr')">Français</button>
-    <button onclick="changeLanguage('ar')">العربية</button>
-    <button onclick="changeLanguage('ber')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>
+    <button class="lang-btn" onclick="changeLanguage('fr')">Français</button>
+    <button class="lang-btn" onclick="changeLanguage('ar')">العربية</button>
+    <button class="lang-btn" onclick="changeLanguage('ber')">ⴰⵎⴰⵣⵉⵖ</button>
   </div>
 
   <nav>
@@ -115,9 +123,7 @@
 
   <section class="section">
     <h2>À propos</h2>
-    <p id="aboutText">
-      YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques au Maroc, notamment l'agriculture, l'aménagement, et l'ingénierie verte. Notre mission est de construire un avenir durable, naturellement.
-    </p>
+    <p id="aboutText">YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...</p>
   </section>
 
   <section class="section" id="contactSection">
@@ -127,10 +133,9 @@
     <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
     <p>GRAIDI Mohammed - Téléphone: +212 641 681 312</p>
 
-    <form action="https://formspree.io/f/xxxxxxxx" method="POST">
-      <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="_replyto" placeholder="Votre e-mail" required />
-      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+    <form action="https://formspree.io/f/xovdbaen" method="POST">
+      <input type="email" name="email" placeholder="Votre email" required />
+      <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
   </section>
@@ -142,15 +147,15 @@
   <script>
     const texts = {
       fr: {
-        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques au Maroc, notamment l'agriculture, l'aménagement, et l'ingénierie verte. Notre mission est de construire un avenir durable, naturellement.",
+        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...",
         contact: "Contactez-nous",
       },
       ar: {
-        about: "شركة YoungWork SARL هي مؤسسة ديناميكية ومبتكرة تعمل في عدة قطاعات استراتيجية بالمغرب، خاصة في مجالات الفلاحة، التهيئة، والهندسة البيئية. مهمتنا هي بناء مستقبل مستدام بطريقة طبيعية.",
+        about: "YoungWork SARL هي شركة ديناميكية ومبتكرة تنشط في عدة مجالات استراتيجية...",
         contact: "اتصل بنا",
       },
       ber: {
-        about: "ⵢⵓⵏⴳⵡⵓⵔⴽ ⵙⴰⵔⵍ ⴷ ⵜⴰⴷⴷⴰⵔⵜ ⵓⵎⵓⴷⴷⴰⵏⴰ ⴷ ⵜⴰⵙⵏⴰⴽⵜ ⵜⵉ ⵓⴷⴷⵓⴽⴰⵏ ⴷ ⵉⵎⵓⴷⴷⴰⵏⵏ ⵏ ⵜⴼⵔⴰ ⵏ ⵍⵎⵖⵔⵉⴱ. ⵜⴰⵎⵙⴰⵍⵜ ⵏⵏⴻⵖ ⴷ ⴰⴷ ⵏⴻⴱⵏⵓ ⴰⵎⴻⵣⵡⴰⵔⵓ ⴷ ⴰⵎⴻⵍⵍⴰⵍ, ⴰⵣⵔⴰⵏ ⵏ ⵜⴰⵎⵓⵔⴰ ⵎⴰⵔⵓⴳ.",
+        about: "YoungWork SARL d yan taddart n tsnaḍfi deg kra n yimanen imudan...",
         contact: "ⴰⴷⴷⴰⵔⴰⵏ ⵏⵓ",
       },
     };
@@ -160,5 +165,6 @@
       document.getElementById("contactTitle").innerText = texts[lang].contact;
     }
   </script>
+
 </body>
 </html>
