@@ -71,6 +71,26 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+        const texts = {
+            fr: {
+                about: 'YoungWork SARL est une entreprise dynamique et innovante...',
+                contact: 'Contactez-nous',
+            },
+            ar: {
+                about: 'YoungWork SARL هي شركة ديناميكية ومبتكرة...',
+                contact: 'اتصل بنا',
+            },
+            ber: {
+                about: 'YoungWork SARL d yan taddart n tsnaḍfi...',
+                contact: 'ⴰⴷⴷⴰⵔⴰⵏ ⵏⵓ',
+            }
+        };
+        function changeLanguage(lang) {
+            document.getElementById('aboutText').innerText = texts[lang].about;
+            document.getElementById('contactTitle').innerText = texts[lang].contact;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -91,14 +111,10 @@
     </nav>
     <section class="section">
         <h2>À propos</h2>
-        <p>YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques tels que la construction, le génie civil, l'aménagement paysager, le nettoyage, la sécurité, la location de matériel et la maintenance industrielle. Grâce à notre expertise et notre engagement envers la qualité, nous proposons des solutions sur mesure qui répondent aux besoins les plus complexes de nos clients.</p>
+        <p id="aboutText">YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...</p>
     </section>
     <section class="section">
-        <h2>Nos Réalisations</h2>
-        <p>ℹ️ La société est encore jeune et en pleine expansion.</p>
-    </section>
-    <section class="section">
-        <h2>Contactez-nous</h2>
+        <h2 id="contactTitle">Contactez-nous</h2>
         <p>MEARADI Fakhreddine - Téléphone: +212 666 257 924</p>
         <p>RAQI Mouhcine - Téléphone: +212 603 052 072</p>
         <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
