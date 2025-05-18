@@ -61,6 +61,7 @@
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-family: Arial, sans-serif;
     }
     footer {
       background-color: #004d99;
@@ -76,9 +77,16 @@
       margin-bottom: 20px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-family: Arial, sans-serif;
     }
     form button {
       background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
     }
     form button:hover {
       background-color: #218838;
@@ -94,7 +102,7 @@
   <div class="language-selector">
     <button onclick="changeLanguage('fr')">Français</button>
     <button onclick="changeLanguage('ar')">العربية</button>
-    <button onclick="changeLanguage('ber')">ⴰⵎⴰⵣⵉⵖ</button>
+    <button onclick="changeLanguage('ber')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>
   </div>
 
   <nav>
@@ -107,7 +115,9 @@
 
   <section class="section">
     <h2>À propos</h2>
-    <p id="aboutText">YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...</p>
+    <p id="aboutText">
+      YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques au Maroc, notamment l'agriculture, l'aménagement, et l'ingénierie verte. Notre mission est de construire un avenir durable, naturellement.
+    </p>
   </section>
 
   <section class="section" id="contactSection">
@@ -119,7 +129,7 @@
 
     <form action="https://formspree.io/f/xxxxxxxx" method="POST">
       <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre e-mail" required />
+      <input type="email" name="_replyto" placeholder="Votre e-mail" required />
       <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
       <button type="submit">Envoyer</button>
     </form>
@@ -132,15 +142,15 @@
   <script>
     const texts = {
       fr: {
-        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques...",
+        about: "YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques au Maroc, notamment l'agriculture, l'aménagement, et l'ingénierie verte. Notre mission est de construire un avenir durable, naturellement.",
         contact: "Contactez-nous",
       },
       ar: {
-        about: "YoungWork SARL هي شركة ديناميكية ومبتكرة تنشط في عدة مجالات استراتيجية...",
+        about: "شركة YoungWork SARL هي مؤسسة ديناميكية ومبتكرة تعمل في عدة قطاعات استراتيجية بالمغرب، خاصة في مجالات الفلاحة، التهيئة، والهندسة البيئية. مهمتنا هي بناء مستقبل مستدام بطريقة طبيعية.",
         contact: "اتصل بنا",
       },
       ber: {
-        about: "YoungWork SARL d yan taddart n tsnaḍfi deg kra n yimanen imudan...",
+        about: "ⵢⵓⵏⴳⵡⵓⵔⴽ ⵙⴰⵔⵍ ⴷ ⵜⴰⴷⴷⴰⵔⵜ ⵓⵎⵓⴷⴷⴰⵏⴰ ⴷ ⵜⴰⵙⵏⴰⴽⵜ ⵜⵉ ⵓⴷⴷⵓⴽⴰⵏ ⴷ ⵉⵎⵓⴷⴷⴰⵏⵏ ⵏ ⵜⴼⵔⴰ ⵏ ⵍⵎⵖⵔⵉⴱ. ⵜⴰⵎⵙⴰⵍⵜ ⵏⵏⴻⵖ ⴷ ⴰⴷ ⵏⴻⴱⵏⵓ ⴰⵎⴻⵣⵡⴰⵔⵓ ⴷ ⴰⵎⴻⵍⵍⴰⵍ, ⴰⵣⵔⴰⵏ ⵏ ⵜⴰⵎⵓⵔⴰ ⵎⴰⵔⵓⴳ.",
         contact: "ⴰⴷⴷⴰⵔⴰⵏ ⵏⵓ",
       },
     };
