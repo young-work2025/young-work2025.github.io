@@ -1,138 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>لوحة تعديل الموقع - YoungWork SARL</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-      margin: 0;
-      padding: 40px;
-      color: #333;
-    }
-    h1 {
-      text-align: center;
-      color: #004d99;
-    }
-    form {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    label {
-      display: block;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    input[type="text"], input[type="color"], textarea, input[type="url"] {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    input[type="submit"], button.copy-btn {
-      margin-top: 25px;
-      background-color: #0073e6;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    input[type="submit"]:hover, button.copy-btn:hover {
-      background-color: #005bb5;
-    }
-    .note {
-      font-size: 0.9em;
-      color: #666;
-      margin-top: 5px;
-      text-align: center;
-    }
-    #preview {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      white-space: pre-wrap;
-      font-family: Consolas, monospace;
-      font-size: 0.9rem;
-      overflow-x: auto;
-    }
-  </style>
-</head>
-<body>
-  <h1>لوحة تعديل الموقع</h1>
-  <form id="adminForm">
-    <label for="siteTitle">عنوان الموقع:</label>
-    <input type="text" id="siteTitle" placeholder="مثال: YoungWork SARL" required>
-
-    <label for="slogan">الشعار النصي:</label>
-    <input type="text" id="slogan" placeholder="مثال: Construisons Demain, Naturellement." required>
-
-    <label for="logoUrl">رابط صورة الشعار:</label>
-    <input type="url" id="logoUrl" placeholder="https://example.com/logo.png" required>
-
-    <label for="contactInfo">معلومات الاتصال:</label>
-    <textarea id="contactInfo" rows="4" placeholder="مثال: +212 666 257 924..." required></textarea>
-
-    <label for="mainColor">اللون الرئيسي للموقع:</label>
-    <input type="color" id="mainColor" value="#004d99" required>
-
-    <label for="accentColor">لون التمييز:</label>
-    <input type="color" id="accentColor" value="#0073e6" required>
-
-    <label for="backgroundImage">رابط صورة الخلفية:</label>
-    <input type="url" id="backgroundImage" placeholder="https://example.com/bg.jpg">
-
-    <label for="socialFacebook">رابط فيسبوك:</label>
-    <input type="url" id="socialFacebook" placeholder="https://facebook.com/yourpage">
-
-    <label for="socialTwitter">رابط تويتر:</label>
-    <input type="url" id="socialTwitter" placeholder="https://twitter.com/yourprofile">
-
-    <label for="socialLinkedin">رابط لينكدإن:</label>
-    <input type="url" id="socialLinkedin" placeholder="https://linkedin.com/in/yourprofile">
-
-    <p class="note">⚠️ لا تنسى نسخ الكود الناتج ولصقه في ملفات موقعك.</p>
-
-    <input type="submit" value="معاينة التعديلات">
-    <button type="button" class="copy-btn" onclick="copyGeneratedCode()">📋 نسخ الكود الناتج</button>
-  </form>
-
-  <div id="preview">
-    <h2>المعاينة:</h2>
-    <div id="previewArea"></div>
-  </div>
-
-  <script>
-    const form = document.getElementById("adminForm");
-    const previewArea = document.getElementById("previewArea");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const title = document.getElementById("siteTitle").value.trim();
-      const slogan = document.getElementById("slogan").value.trim();
-      const logoUrl = document.getElementById("logoUrl").value.trim();
-      const contactInfo = document.getElementById("contactInfo").value.trim();
-      const mainColor = document.getElementById("mainColor").value;
-      const accentColor = document.getElementById("accentColor").value;
-      const bgImage = document.getElementById("backgroundImage").value.trim();
-      const socialFacebook = document.getElementById("socialFacebook").value.trim() || "#";
-      const socialTwitter = document.getElementById("socialTwitter").value.trim() || "#";
-      const socialLinkedin = document.getElementById("socialLinkedin").value.trim() || "#";
-
-      const generatedHTML = `<!DOCTYPE html>
+const generatedHTML = `<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -309,14 +175,20 @@
   <header>
     <img src="${logoUrl}" alt="Logo" />
     <nav>
-      <a href="#services">الخدمات</a>
-      <a href="#portfolio">المشاريع</a>
-      <a href="#contact">اتصل بنا</a>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Réalisations</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
   <main>
     <h1>${title}</h1>
     <p class="slogan">${slogan}</p>
+
+    <section id="about">
+      <h2>À propos de ${title}</h2>
+      <p>Bienvenue sur notre site officiel. Nous sommes spécialisés dans le bâtiment, l'ingénierie civile, la plantation, le nettoyage, la sécurité, la location d'équipements et la maintenance industrielle.</p>
+    </section>
 
     <section id="services" class="services">
       <div class="service-item">خدمة 1</div>
@@ -365,22 +237,3 @@
 </body>
 </html>
 `;
-
-      previewArea.textContent = generatedHTML;
-    });
-
-    function copyGeneratedCode() {
-      const text = document.getElementById("previewArea").textContent;
-      if (!text) {
-        alert("لا يوجد كود للنسخ، يرجى الضغط على معاينة أولاً.");
-        return;
-      }
-      navigator.clipboard.writeText(text).then(() => {
-        alert("✅ تم نسخ الكود بنجاح!");
-      }).catch(() => {
-        alert("❌ حدث خطأ أثناء النسخ.");
-      });
-    }
-  </script>
-</body>
-</html>
