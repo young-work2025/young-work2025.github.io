@@ -1,1 +1,133 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YoungWork SARL - Site Officiel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --main-color: #004d99;
+      --accent-color: #0073e6;
+      --bg-color: #f0f4f8;
+      --text-color: #333;
+    }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+    header {
+      background-color: var(--main-color);
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    header nav a:hover {
+      color: var(--accent-color);
+    }
+    .social-links a {
+      margin: 0 8px;
+      color: white;
+    }
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
+    footer {
+      background-color: var(--main-color);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--main-color);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+    }
+    #backToTop:hover {
+      background-color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>YoungWork SARL</h1>
+    </div>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </header>
+  <main>
+    <section id="about">
+      <h2>À propos de nous</h2>
+      <p>Bienvenue chez YoungWork SARL. Nous construisons l'avenir avec passion et expertise.</p>
+    </section>
+    <section id="services">
+      <h2>Nos Services</h2>
+      <p>Nous proposons des services de construction, d'ingénierie civile, de nettoyage, et plus encore.</p>
+    </section>
+    <section id="realisations">
+      <h2>Nos Réalisations</h2>
+      <p>Découvrez nos projets les plus marquants et nos réussites professionnelles.</p>
+    </section>
+    <section id="contact">
+      <h2>Contactez-nous</h2>
+      <p>Pour toute demande, contactez-nous via nos réseaux sociaux ou notre numéro de téléphone.</p>
+    </section>
+  </main>
+  <button id="backToTop" title="Retour en haut">⬆️</button>
+  <footer>
+    &copy; 2025 YoungWork SARL - Tous droits réservés.
+  </footer>
+  <script>
+    const btnBack = document.getElementById('backToTop');
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 300) {
+        btnBack.style.display = 'block';
+      } else {
+        btnBack.style.display = 'none';
+      }
+    };
+    btnBack.onclick = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>
