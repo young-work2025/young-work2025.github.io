@@ -59,28 +59,14 @@
     #preview {
       max-width: 700px;
       margin: 30px auto;
-      padding: 0;
+      padding: 20px;
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      white-space: pre-wrap;
       font-family: Consolas, monospace;
       font-size: 0.9rem;
       overflow-x: auto;
-    }
-    #previewArea {
-      width: 100%;
-      height: 400px;
-      padding: 15px;
-      border: none;
-      resize: none;
-      background-color: #f9f9f9;
-      color: #222;
-      box-sizing: border-box;
-      white-space: pre-wrap;
-      overflow: auto;
-      font-family: Consolas, monospace;
-      font-size: 0.9rem;
-      border-radius: 12px;
     }
   </style>
 </head>
@@ -117,20 +103,13 @@
     <label for="socialLinkedin">رابط لينكدإن:</label>
     <input type="url" id="socialLinkedin" placeholder="https://linkedin.com/in/yourprofile">
 
-    <p class="note">⚠️ لا تنسى نسخ الكود الناتج ولصقه في ملفات موقعك.</p>
+    <p class="note">⚠️ لا تنسى نسخ الكود الناتج من النافذة الجديدة.</p>
 
     <input type="submit" value="معاينة التعديلات">
-    <button type="button" class="copy-btn" onclick="copyGeneratedCode()">📋 نسخ الكود الناتج</button>
   </form>
-
-  <div id="preview">
-    <h2 style="text-align:center; margin: 15px 0;">المعاينة:</h2>
-    <textarea id="previewArea" readonly></textarea>
-  </div>
 
   <script>
     const form = document.getElementById("adminForm");
-    const previewArea = document.getElementById("previewArea");
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
@@ -310,48 +289,39 @@
     @media (max-width: 768px) {
       .services {
         flex-direction: column;
-        align-items: center;
       }
-      header {
-        flex-direction: column;
-        height: auto;
-        padding: 15px;
-      }
-      nav a {
-        margin: 10px 10px 0 10px;
+      main {
+        margin: 140px 20px 40px;
+        padding: 20px;
       }
     }
   </style>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <header>
-    <div>
-      <img src="${logoUrl}" alt="Logo de ${title}" />
-    </div>
+    <img src="${logoUrl}" alt="Logo" />
     <nav>
+      <a href="#home">Accueil</a>
       <a href="#services">Services</a>
       <a href="#portfolio">Projets</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
-
-  <main>
+  <main id="home">
     <h1>${title}</h1>
     <p class="slogan">${slogan}</p>
 
     <section id="services" class="services">
-      <div class="service-item">Construction</div>
-      <div class="service-item">Génie Civil</div>
-      <div class="service-item">Aménagement Paysager</div>
-      <div class="service-item">Nettoyage</div>
-      <div class="service-item">Sécurité</div>
-      <div class="service-item">Location d'équipements</div>
-      <div class="service-item">Maintenance Industrielle</div>
+      <div class="service-item"><i class="fas fa-hard-hat"></i><br>Bâtiment</div>
+      <div class="service-item"><i class="fas fa-tree"></i><br>Aménagement paysager</div>
+      <div class="service-item"><i class="fas fa-broom"></i><br>Nettoyage</div>
+      <div class="service-item"><i class="fas fa-shield-alt"></i><br>Sécurité</div>
+      <div class="service-item"><i class="fas fa-tools"></i><br>Location d'équipements</div>
+      <div class="service-item"><i class="fas fa-industry"></i><br>Maintenance industrielle</div>
     </section>
 
     <section id="portfolio" class="portfolio">
-      <!-- مثال على صور المشاريع -->
       <img src="https://via.placeholder.com/400x250?text=Projet+1" alt="Projet 1" />
       <img src="https://via.placeholder.com/400x250?text=Projet+2" alt="Projet 2" />
       <img src="https://via.placeholder.com/400x250?text=Projet+3" alt="Projet 3" />
@@ -359,47 +329,65 @@
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2>Contactez-nous</h2>
       <div class="contact-info">${contactInfo.replace(/\n/g, "<br>")}</div>
       <div class="social-links">
-        <a href="${socialFacebook}" target="_blank"><i class="fab fa-facebook-square"></i></a>
-        <a href="${socialTwitter}" target="_blank"><i class="fab fa-twitter-square"></i></a>
-        <a href="${socialLinkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="${socialFacebook}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="${socialTwitter}" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="${socialLinkedin}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       </div>
     </section>
   </main>
-
-  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+  <button id="backToTop" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
   <footer>
-    &copy; ${new Date().getFullYear()} ${title}. Tous droits réservés.
+    © 2025 ${title} - Tous droits réservés
   </footer>
 
   <script>
-    window.addEventListener('scroll', function() {
-      const btn = document.getElementById('backToTop');
-      if (window.scrollY > 300) {
-        btn.style.display = 'block';
+    // زر العودة للأعلى
+    const backToTopBtn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.style.display = "block";
       } else {
-        btn.style.display = 'none';
+        backToTopBtn.style.display = "none";
       }
+    });
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 </body>
 </html>`;
 
-      previewArea.value = generatedHTML;
-    });
+      // فتح نافذة جديدة مع عرض الكود بشكل آمن
+      const newWindow = window.open("", "_blank");
+      newWindow.document.write(`
+        <html>
+          <head>
+            <title>كود الموقع الناتج - YoungWork SARL</title>
+            <style>
+              body { font-family: monospace; white-space: pre-wrap; padding: 20px; background: #f9f9f9; }
+              pre { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow-x: auto; }
+            </style>
+          </head>
+          <body>
+            <h2>انسخ الكود أدناه واستخدمه لملف موقعك</h2>
+            <pre>${escapeHtml(generatedHTML)}</pre>
+          </body>
+        </html>
+      `);
 
-    function copyGeneratedCode() {
-      previewArea.select();
-      previewArea.setSelectionRange(0, 99999); // For mobile devices
-      navigator.clipboard.writeText(previewArea.value).then(() => {
-        alert("تم نسخ الكود الناتج بنجاح!");
-      }, () => {
-        alert("حدث خطأ أثناء نسخ الكود.");
-      });
-    }
+      // دالة تعقيم النصوص للحماية
+      function escapeHtml(text) {
+        return text.replace(/&/g, "&amp;")
+                   .replace(/</g, "&lt;")
+                   .replace(/>/g, "&gt;")
+                   .replace(/"/g, "&quot;")
+                   .replace(/'/g, "&#039;");
+      }
+    });
   </script>
 </body>
 </html>
