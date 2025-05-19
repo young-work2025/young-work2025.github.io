@@ -1,238 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YoungWork SARL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Noto Sans', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(to right, #004d99, #0073e6);
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
-    }
-    header img {
-      width: 100px;
-      animation: bounce 2s infinite;
-    }
-    header h1 {
-      margin: 10px 0 5px;
-      font-size: 2.5em;
-    }
-    header p {
-      font-style: italic;
-      font-size: 1.2em;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    nav {
-      background-color: #003d7a;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    nav a:hover {
-      background-color: #005bb5;
-    }
-    .language-selector {
-      text-align: center;
-      margin: 20px;
-    }
-    .language-selector button {
-      margin: 0 5px;
-      padding: 8px 16px;
-      background-color: #0073e6;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .language-selector button:hover {
-      background-color: #005bb5;
-    }
-    .section {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 40px;
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      border-left: 6px solid #0073e6;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-    ul li {
-      margin: 10px 0;
-      line-height: 1.6;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    form button {
-      background-color: #28a745;
-      color: #fff;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    form button:hover {
-      background-color: #218838;
-    }
-    footer {
-      background-color: #003d7a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoungWork SARL - Accueil</title>
+    <style>
+        :root {
+            --primary-color: #0073e6;
+            --secondary-color: #004d99;
+            --accent-color: #cf2e2e;
+            --text-color: #333;
+            --light-color: #f4f4f4;
+            --white: #ffffff;
+            --black: #000000;
+            --gradient-header: linear-gradient(135deg, rgba(255,105,0,1) 0%, rgb(207,46,46) 100%);
+            --shadow-deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --font-large: 36px;
+            --spacing-50: 1.5rem;
+            --border-radius: 10px;
+            --transition-fast: 0.3s ease;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--text-color);
+        }
+        header {
+            background: var(--gradient-header);
+            color: var(--white);
+            padding: var(--spacing-50);
+            text-align: center;
+            position: relative;
+            animation: logoBounce 2s infinite;
+            box-shadow: var(--shadow-deep);
+            font-size: var(--font-large);
+        }
+        @keyframes logoBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--primary-color);
+            padding: 10px;
+        }
+        nav a {
+            color: var(--white);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color var(--transition-fast);
+        }
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        .language-selector {
+            text-align: center;
+            margin: 10px;
+        }
+        button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        .section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="https://i.postimg.cc/rwKKhcJP/logo-Young-Work-SARL.png" alt="Logo YoungWork SARL">
-    <h1>YoungWork SARL</h1>
-    <p>Construisons Demain, Naturellement.</p>
-  </header>
-
-  <div class="language-selector">
-    <button onclick="changeLanguage('fr')">Français</button>
-    <button onclick="changeLanguage('ar')">العربية</button>
-    <button onclick="changeLanguage('ber')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>
-  </div>
-
-  <nav>
-    <a href="#about">À propos</a>
-    <a href="#services">Nos Services</a>
-    <a href="#realisations">Nos Réalisations</a>
-    <a href="#contact">Contactez-nous</a>
-  </nav>
-
-  <section class="section" id="about">
-    <h2 id="aboutTitle">À propos</h2>
-    <p id="aboutText">YoungWork SARL est une entreprise dynamique...</p>
-  </section>
-
-  <section class="section" id="services">
-    <h2 id="servicesTitle">Nos Services</h2>
-    <ul>
-      <li id="service1">Construction & Génie Civil...</li>
-      <li id="service2">🌿 Aménagement Paysager...</li>
-      <li id="service3">🛠️ Location de Matériel...</li>
-      <li id="service4">🔧 Maintenance Industrielle...</li>
-    </ul>
-  </section>
-
-  <section class="section" id="realisations">
-    <h2>Nos Réalisations</h2>
-    <p id="realisationsText">لزالت الشركة حديثة النشاءة</p>
-  </section>
-
-  <section class="section" id="contact">
-    <h2 id="contactTitle">Contactez-nous</h2>
-    <p>MEARADI Fakhreddine - Téléphone: +212 666 257 924</p>
-    <p>RAQI Mouhcine - Téléphone: +212 603 052 072</p>
-    <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
-    <p>GRAIDI Mohammed - Téléphone: +212 641 681 312</p>
-
-    <form action="https://formspree.io/f/mldbvrnj" method="POST">
-      <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre e-mail" required />
-      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
-
-  <footer>
-    © 2025 YoungWork SARL - Tous droits réservés
-  </footer>
-
-  <!-- Tawk.to Chat Widget -->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/682a6ba4f062c51916e07f5a/1irir8umf';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-
-  <script>
-    const texts = {
-      fr: {
-        aboutTitle: "À propos",
-        about: "YoungWork SARL est une entreprise dynamique...",
-        contact: "Contactez-nous",
-        servicesTitle: "Nos Services",
-        service1: "Construction & Génie Civil: Réalisation de projets...",
-        service2: "🌿 Aménagement Paysager: Création de parcs...",
-        service3: "🛠️ Location de Matériel: Grues, camions...",
-        service4: "🔧 Maintenance Industrielle: Inspection..."
-      },
-      ar: {
-        aboutTitle: "حول الشركة",
-        about: "شركة YoungWork SARL هي مؤسسة ديناميكية...",
-        contact: "اتصل بنا",
-        servicesTitle: "خدماتنا",
-        service1: "البناء والهندسة المدنية: تنفيذ المشاريع...",
-        service2: "🌿 تهيئة المساحات الخضراء والتنظيف: إنشاء الحدائق...",
-        service3: "🛠️ تأجير المعدات: الرافعات، الشاحنات...",
-        service4: "🔧 الصيانة الصناعية: الفحص، والإصلاح..."
-      },
-      ber: {
-        aboutTitle: "ⵉⴷⵔⴰⵏ ⵏ ⵜⴰⵎⴰⵣⵉⵖⵜ",
-        about: "YoungWork SARL d taddart n ifkaren...",
-        contact: "ⴰⴷⴷⴰⵔ ⵏⵓ",
-        servicesTitle: "ⴰⵎⵙⵙⴰⵏ ⵏⵓ",
-        service1: "ⴰⵙⵉⵍⴰⵙ ⴷ ⵜⴰⵎⵉⵏⵜ...",
-        service2: "🌿 ⵜⵉⵙⵉⴽⴰ ⴷ ⵜⵉⴼⴻⵔⴻⵏⵉ...",
-        service3: "🛠️ ⵜⴰⵎⵏⵉⵜ ⵏ ⵉⵙⵉⵏⴰⵏ...",
-        service4: "🔧 ⵜⵉⵣⵉⵣⵓ ⵏ ⵜⴰⵙⵉⵏⴰⵏ..."
-      }
-    };
-
-    function changeLanguage(lang) {
-      document.getElementById("aboutTitle").innerText = texts[lang].aboutTitle;
-      document.getElementById("aboutText").innerText = texts[lang].about;
-      document.getElementById("contactTitle").innerText = texts[lang].contact;
-      document.getElementById("servicesTitle").innerText = texts[lang].servicesTitle;
-      document.getElementById("service1").innerText = texts[lang].service1;
-      document.getElementById("service2").innerText = texts[lang].service2;
-      document.getElementById("service3").innerText = texts[lang].service3;
-      document.getElementById("service4").innerText = texts[lang].service4;
-    }
-  </script>
+    <header>
+        <h1>YoungWork SARL</h1>
+        <p>Construisons Demain, Naturellement.</p>
+    </header>
+    <div class="language-selector">
+        <button onclick="changeLanguage('fr')">Français</button>
+        <button onclick="changeLanguage('ar')">العربية</button>
+        <button onclick="changeLanguage('ber')">ⴰⵎⴰⵣⵉⵖ</button>
+    </div>
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#">À propos</a>
+        <a href="#">Nos Services</a>
+        <a href="#">Nos Réalisations</a>
+        <a href="#">Contactez-nous</a>
+    </nav>
+    <section class="section">
+        <h2>À propos</h2>
+        <p>YoungWork SARL est une entreprise dynamique et innovante opérant dans plusieurs secteurs stratégiques tels que la construction, le génie civil, l'aménagement paysager, le nettoyage, la sécurité, la location de matériel et la maintenance industrielle.</p>
+    </section>
+    <section class="section">
+        <h2>Nos Réalisations</h2>
+        <p>ℹ️ La société est encore jeune et en pleine expansion.</p>
+    </section>
+    <section class="section">
+        <h2>Contactez-nous</h2>
+        <p>MEARADI Fakhreddine - Téléphone: +212 666 257 924</p>
+        <p>RAQI Mouhcine - Téléphone: +212 603 052 072</p>
+        <p>MAACH Mouhcine - Téléphone: +212 624 438 135</p>
+        <p>GRAIDI Mohammed - Téléphone: +212 641 681 312</p>
+    </section>
+    <footer>
+        © 2025 YoungWork SARL - Tous droits réservés
+    </footer>
 </body>
 </html>
