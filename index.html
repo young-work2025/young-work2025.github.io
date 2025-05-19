@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YoungWork SARL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
   <style>
     :root {
       --main-color: #004d99;
@@ -13,25 +13,25 @@
     }
 
     body {
-      font-family: 'Noto Sans', Arial, sans-serif;
+      font-family: 'Noto Sans', 'Noto Sans Tifinagh', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f2f5;
+      background-color: #f9f9f9;
       color: #333;
+      transition: direction 0.3s;
     }
 
     header {
       background-color: var(--main-color);
       color: #fff;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       animation: bounce 2s infinite;
     }
 
     header img {
-      width: 120px;
-      display: block;
-      margin: 0 auto 10px;
+      width: 100px;
+      margin-bottom: 10px;
       animation: bounce 2s infinite;
     }
 
@@ -44,13 +44,13 @@
       background-color: var(--accent-color);
       display: flex;
       justify-content: center;
-      padding: 10px;
       flex-wrap: wrap;
+      padding: 10px;
     }
 
     nav a {
       color: white;
-      margin: 0 10px;
+      margin: 5px 15px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -74,17 +74,13 @@
       cursor: pointer;
     }
 
-    .language-selector button:hover {
-      background-color: #005bb5;
-    }
-
     .section {
       max-width: 1000px;
       margin: 20px auto;
       padding: 30px;
       background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     input, textarea {
@@ -104,16 +100,11 @@
       cursor: pointer;
     }
 
-    form button:hover {
-      background-color: #218838;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
       background-color: var(--main-color);
       color: white;
-      margin-top: 40px;
     }
 
     .admin-btn {
@@ -127,13 +118,26 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 15px;
+      background-color: #25d366;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="https://i.postimg.cc/rwKKhcJP/logo-Young-Work-SARL.png" alt="Logo YoungWork SARL">
     <h1>YoungWork SARL</h1>
-    <p>Construisons Demain, Naturellement.</p>
+    <p id="slogan">Construisons Demain, Naturellement.</p>
   </header>
 
   <div class="language-selector">
@@ -143,10 +147,10 @@
   </div>
 
   <nav>
-    <a href="#about">À propos</a>
-    <a href="#services">Nos Services</a>
-    <a href="#realisations">Nos Réalisations</a>
-    <a href="#contact">Contactez-nous</a>
+    <a href="#about" id="navAbout">À propos</a>
+    <a href="#services" id="navServices">Services</a>
+    <a href="#realisations" id="navRealisations">Réalisations</a>
+    <a href="#contact" id="navContact">Contact</a>
   </nav>
 
   <section class="section" id="about">
@@ -155,18 +159,18 @@
   </section>
 
   <section class="section" id="services">
-    <h2>Nos Services</h2>
+    <h2 id="servicesTitle">Nos Services</h2>
     <ul>
-      <li><strong>Construction & Génie Civil:</strong> Réalisation de projets complets...</li>
-      <li><strong>🌿 Aménagement Paysager & Nettoyage:</strong> Création de parcs...</li>
-      <li><strong>🛠️ Location de Matériel:</strong> Grues, camions...</li>
-      <li><strong>🔧 Maintenance Industrielle:</strong> Inspection, réparation...</li>
+      <li id="s1">Construction & Génie Civil: Réalisation de projets complets...</li>
+      <li id="s2">🌿 Aménagement Paysager & Nettoyage: Création de parcs...</li>
+      <li id="s3">🛠️ Location de Matériel: Grues, camions...</li>
+      <li id="s4">🔧 Maintenance Industrielle: Inspection, réparation...</li>
     </ul>
   </section>
 
   <section class="section" id="realisations">
-    <h2>Nos Réalisations</h2>
-    <p>لزالت الشركة حديثة النشاءة</p>
+    <h2 id="realTitle">Nos Réalisations</h2>
+    <p id="realText">La société est encore jeune.</p>
   </section>
 
   <section class="section" id="contact">
@@ -189,30 +193,84 @@
   </footer>
 
   <button class="admin-btn" onclick="promptAdmin()">Admin</button>
+  <a href="https://wa.me/212666257924" class="whatsapp-btn" target="_blank">📞 WhatsApp</a>
 
-  <script type="text/javascript">
-    const texts = {
+  <script>
+    const translations = {
       fr: {
+        dir: "ltr",
+        slogan: "Construisons Demain, Naturellement.",
         aboutTitle: "À propos",
-        about: "YoungWork SARL est une entreprise dynamique...",
-        contact: "Contactez-nous"
+        aboutText: "YoungWork SARL est une entreprise dynamique et innovante...",
+        servicesTitle: "Nos Services",
+        s1: "Construction & Génie Civil: Réalisation de projets complets...",
+        s2: "🌿 Aménagement Paysager & Nettoyage: Création de parcs...",
+        s3: "🛠️ Location de Matériel: Grues, camions...",
+        s4: "🔧 Maintenance Industrielle: Inspection, réparation...",
+        realTitle: "Nos Réalisations",
+        realText: "La société est encore jeune.",
+        contactTitle: "Contactez-nous",
+        navAbout: "À propos",
+        navServices: "Services",
+        navRealisations: "Réalisations",
+        navContact: "Contact"
       },
       ar: {
+        dir: "rtl",
+        slogan: "لنُشيد المستقبل بشكل طبيعي",
         aboutTitle: "حول الشركة",
-        about: "شركة YoungWork SARL هي مؤسسة ديناميكية...",
-        contact: "اتصل بنا"
+        aboutText: "شركة YoungWork SARL هي مؤسسة ديناميكية ومبتكرة...",
+        servicesTitle: "خدماتنا",
+        s1: "البناء والهندسة المدنية: تنفيذ مشاريع كاملة...",
+        s2: "🌿 التنسيق والتنظيف: إنشاء حدائق...",
+        s3: "🛠️ تأجير المعدات: رافعات، شاحنات...",
+        s4: "🔧 الصيانة الصناعية: فحص، إصلاح...",
+        realTitle: "إنجازاتنا",
+        realText: "الشركة لا تزال جديدة.",
+        contactTitle: "اتصل بنا",
+        navAbout: "حول",
+        navServices: "الخدمات",
+        navRealisations: "الإنجازات",
+        navContact: "اتصال"
       },
       ber: {
-        aboutTitle: "ⵉⴷⵔⴰⵏ ⵏ ⵜⴰⵎⴰⵣⵉⵖⵜ",
-        about: "YoungWork SARL d taddart n ifkaren...",
-        contact: "ⴰⴷⴷⴰⵔ ⵏⵓ"
+        dir: "ltr",
+        slogan: "Nsenker azekka s tura",
+        aboutTitle: "ⵉⴷⵔⴰⵏ",
+        aboutText: "YoungWork SARL d taddart n ifkaren akked taɣect...",
+        servicesTitle: "Imsaɣen nneɣ",
+        s1: "ⵙⵙⴰⵏⵜ ⵓⵙⵙⵉ ⴷ ⵉⵏⴷⵓⵔⵉⴳⵉ: iklesen ummidan...",
+        s2: "🌿 Asefru akked tanzagt: tkemmilt n igarden...",
+        s3: "🛠️ Asrent n yiberdan: imuddan, lcamionat...",
+        s4: "🔧 Taεmilt: abrus, asnifel...",
+        realTitle: "Iselkan nneɣ",
+        realText: "Taddart ayen n yir awal.",
+        contactTitle: "ⴰⴷⴷⴰⵔ ⵏⵓ",
+        navAbout: "ⴰⵏⵙⵙⴰⵏ",
+        navServices: "ⵉⵎⵙⴰⵖⵏ",
+        navRealisations: "ⵉⵙⴻⵍⴽⴰⵏ",
+        navContact: "ⴰⴷⴷⴰⵔ"
       }
     };
 
     function changeLanguage(lang) {
-      document.getElementById("aboutTitle").innerText = texts[lang].aboutTitle;
-      document.getElementById("aboutText").innerText = texts[lang].about;
-      document.getElementById("contactTitle").innerText = texts[lang].contact;
+      const t = translations[lang];
+      document.documentElement.dir = t.dir;
+      document.getElementById("slogan").innerText = t.slogan;
+      document.getElementById("aboutTitle").innerText = t.aboutTitle;
+      document.getElementById("aboutText").innerText = t.aboutText;
+      document.getElementById("servicesTitle").innerText = t.servicesTitle;
+      document.getElementById("s1").innerText = t.s1;
+      document.getElementById("s2").innerText = t.s2;
+      document.getElementById("s3").innerText = t.s3;
+      document.getElementById("s4").innerText = t.s4;
+      document.getElementById("realTitle").innerText = t.realTitle;
+      document.getElementById("realText").innerText = t.realText;
+      document.getElementById("contactTitle").innerText = t.contactTitle;
+      document.getElementById("navAbout").innerText = t.navAbout;
+      document.getElementById("navServices").innerText = t.navServices;
+      document.getElementById("navRealisations").innerText = t.navRealisations;
+      document.getElementById("navContact").innerText = t.navContact;
     }
 
     function promptAdmin() {
@@ -225,7 +283,7 @@
     }
   </script>
 
-  <!-- Chatbot (Tawk.to) -->
+  <!-- Tawk.to Chatbot -->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   (function(){
