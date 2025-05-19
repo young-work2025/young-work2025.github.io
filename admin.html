@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة تعديل الموقع - YoungWork SARL</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #004d99;
+    }
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="color"], textarea, input[type="url"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    input[type="submit"], button.copy-btn {
+      margin-top: 25px;
+      background-color: #0073e6;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    input[type="submit"]:hover, button.copy-btn:hover {
+      background-color: #005bb5;
+    }
+    .note {
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 5px;
+      text-align: center;
+    }
+    #preview {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      white-space: pre-wrap;
+      font-family: Consolas, monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>لوحة تعديل الموقع</h1>
+  <form id="adminForm">
+    <label for="siteTitle">عنوان الموقع:</label>
+    <input type="text" id="siteTitle" placeholder="مثال: YoungWork SARL" required>
+
+    <label for="slogan">الشعار النصي:</label>
+    <input type="text" id="slogan" placeholder="مثال: Construisons Demain, Naturellement." required>
+
+    <label for="logoUrl">رابط صورة الشعار:</label>
+    <input type="url" id="logoUrl" placeholder="https://example.com/logo.png" required>
+
+    <label for="contactInfo">معلومات الاتصال:</label>
+    <textarea id="contactInfo" rows="4" placeholder="مثال: +212 666 257 924..." required></textarea>
+
+    <label for="mainColor">اللون الرئيسي للموقع:</label>
+    <input type="color" id="mainColor" value="#004d99" required>
+
+    <label for="accentColor">لون التمييز:</label>
+    <input type="color" id="accentColor" value="#0073e6" required>
+
+    <label for="backgroundImage">رابط صورة الخلفية:</label>
+    <input type="url" id="backgroundImage" placeholder="https://example.com/bg.jpg">
+
+    <label for="socialFacebook">رابط فيسبوك:</label>
+    <input type="url" id="socialFacebook" placeholder="https://facebook.com/yourpage">
+
+    <label for="socialTwitter">رابط تويتر:</label>
+    <input type="url" id="socialTwitter" placeholder="https://twitter.com/yourprofile">
+
+    <label for="socialLinkedin">رابط لينكدإن:</label>
+    <input type="url" id="socialLinkedin" placeholder="https://linkedin.com/in/yourprofile">
+
+    <p class="note">⚠️ لا تنسى نسخ الكود الناتج ولصقه في ملفات موقعك.</p>
+
+    <input type="submit" value="معاينة التعديلات">
+    <button type="button" class="copy-btn" onclick="copyGeneratedCode()">📋 نسخ الكود الناتج</button>
+  </form>
+
+  <div id="preview">
+    <h2>المعاينة:</h2>
+    <div id="previewArea"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("adminForm");
+    const previewArea = document.getElementById("previewArea");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("siteTitle").value.trim();
+      const slogan = document.getElementById("slogan").value.trim();
+      const logoUrl = document.getElementById("logoUrl").value.trim();
+      const contactInfo = document.getElementById("contactInfo").value.trim();
+      const mainColor = document.getElementById("mainColor").value;
+      const accentColor = document.getElementById("accentColor").value;
+      const bgImage = document.getElementById("backgroundImage").value.trim();
+      const socialFacebook = document.getElementById("socialFacebook").value.trim() || "#";
+      const socialTwitter = document.getElementById("socialTwitter").value.trim() || "#";
+      const socialLinkedin = document.getElementById("socialLinkedin").value.trim() || "#";
+
+      const generatedHTML = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${title}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --main-color: ${mainColor};
+      --accent-color: ${accentColor};
+      --bg-color: #f0f4f8;
+      --text-color: #333;
+    }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      ${bgImage ? `background-image: url('${bgImage}'); background-size: cover; background-position: center;` : ''}
+    }
+    header {
+      background-color: var(--main-color);
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      max-height: 50px;
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg);}
+      to { transform: rotate(360deg);}
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--accent-color);
+    }
+    main {
+      max-width: 1100px;
+      margin: 120px auto 40px;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .slogan {
+      font-style: italic;
+      color: var(--accent-color);
+      margin-bottom: 40px;
+      font-size: 1.3rem;
+    }
+    /* قسم الخدمات */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+    .service-item {
+      flex: 1 1 250px;
+      background: var(--main-color);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+    .service-item:hover {
+      transform: translateY(-10px);
+      background: var(--accent-color);
+    }
+    /* معرض الصور */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    .portfolio img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .portfolio img:hover {
+      transform: scale(1.05);
+    }
+    /* معلومات الاتصال */
+    #contact {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 50px;
+    }
+    .contact-info {
+      white-space: pre-line;
+      margin-bottom: 15px;
+    }
+    .social-links a {
+      margin: 0 12px;
+      font-size: 1.6rem;
+      color: var(--main-color);
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
+    /* زر العودة للأعلى */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--main-color);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.6rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    #backToTop:hover {
+      background-color: var(--accent-color);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--main-color);
+      color: white;
+      font-weight: 600;
+      border-radius: 0 0 12px 12px;
+      user-select: none;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+        gap: 20px;
+      }
+      nav {
+        display: none; /* اختياري، يمكنك تعديل */
+      }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <img src="${logoUrl}" alt="Logo" />
+    <nav>
+      <a href="#services">الخدمات</a>
+      <a href="#portfolio">المشاريع</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+  </header>
+  <main>
+    <h1>${title}</h1>
+    <p class="slogan">${slogan}</p>
+
+    <section id="services" class="services">
+      <div class="service-item">خدمة 1</div>
+      <div class="service-item">خدمة 2</div>
+      <div class="service-item">خدمة 3</div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <img src="https://via.placeholder.com/400x250?text=Projet+1" alt="Projet 1" />
+      <img src="https://via.placeholder.com/400x250?text=Projet+2" alt="Projet 2" />
+      <img src="https://via.placeholder.com/400x250?text=Projet+3" alt="Projet 3" />
+      <img src="https://via.placeholder.com/400x250?text=Projet+4" alt="Projet 4" />
+    </section>
+
+    <section id="contact">
+      <h2>Contactez-nous</h2>
+      <div class="contact-info">${contactInfo.replace(/\n/g, '<br>')}</div>
+      <div class="social-links">
+        <a href="${socialFacebook}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+        <a href="${socialTwitter}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+        <a href="${socialLinkedin}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <button id="backToTop" title="Retour en haut">&#8679;</button>
+
+  <footer>
+    &copy; ${new Date().getFullYear()} ${title}. Tous droits réservés.
+  </footer>
+
+  <script>
+    // ظهور زر العودة للأعلى عند النزول
+    const btnBack = document.getElementById('backToTop');
+    window.onscroll = () => {
+      if(document.documentElement.scrollTop > 300) {
+        btnBack.style.display = 'flex';
+      } else {
+        btnBack.style.display = 'none';
+      }
+    };
+    btnBack.onclick = () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+  </script>
+</body>
+</html>
+`;
+
+      previewArea.textContent = generatedHTML;
+    });
+
+    function copyGeneratedCode() {
+      const text = document.getElementById("previewArea").textContent;
+      if (!text) {
+        alert("لا يوجد كود للنسخ، يرجى الضغط على معاينة أولاً.");
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ تم نسخ الكود بنجاح!");
+      }).catch(() => {
+        alert("❌ حدث خطأ أثناء النسخ.");
+      });
+    }
+  </script>
+</body>
+</html>
