@@ -1,299 +1,133 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YoungWork SARL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YoungWork SARL - Site Officiel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
     :root {
       --main-color: #004d99;
       --accent-color: #0073e6;
-      --success-color: #28a745;
+      --bg-color: #f0f4f8;
+      --text-color: #333;
     }
-
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
-      font-family: 'Noto Sans', 'Noto Sans Tifinagh', Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      transition: direction 0.3s;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
-
     header {
       background-color: var(--main-color);
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
-      animation: bounce 2s infinite;
-    }
-
-    header img {
-      width: 100px;
-      margin-bottom: 10px;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    nav {
-      background-color: var(--accent-color);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px;
-    }
-
-    nav a {
       color: white;
-      margin: 5px 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .language-selector {
-      text-align: center;
-      margin: 15px 0;
-    }
-
-    .language-selector button {
-      margin: 0 5px;
-      padding: 8px 12px;
-      background-color: var(--accent-color);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .section {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 30px;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    input, textarea {
+      padding: 15px 20px;
+      position: fixed;
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-
-    form button {
-      background-color: var(--success-color);
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
-
+    header nav a:hover {
+      color: var(--accent-color);
+    }
+    .social-links a {
+      margin: 0 8px;
+      color: white;
+    }
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
     footer {
-      text-align: center;
-      padding: 20px;
       background-color: var(--main-color);
       color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
-
-    .admin-btn {
+    #backToTop {
+      display: none;
       position: fixed;
-      bottom: 15px;
-      right: 15px;
-      background: #e91e63;
-      color: #fff;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 80px;
-      right: 15px;
-      background-color: #25d366;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--main-color);
       color: white;
-      padding: 10px 15px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+    }
+    #backToTop:hover {
+      background-color: var(--accent-color);
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.postimg.cc/rwKKhcJP/logo-Young-Work-SARL.png" alt="Logo YoungWork SARL">
-    <h1>YoungWork SARL</h1>
-    <p id="slogan">Construisons Demain, Naturellement.</p>
+    <div>
+      <h1>YoungWork SARL</h1>
+    </div>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
   </header>
-
-  <div class="language-selector">
-    <button onclick="changeLanguage('fr')">Français</button>
-    <button onclick="changeLanguage('ar')">العربية</button>
-    <button onclick="changeLanguage('ber')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>
-  </div>
-
-  <nav>
-    <a href="#about" id="navAbout">À propos</a>
-    <a href="#services" id="navServices">Services</a>
-    <a href="#realisations" id="navRealisations">Réalisations</a>
-    <a href="#contact" id="navContact">Contact</a>
-  </nav>
-
-  <section class="section" id="about">
-    <h2 id="aboutTitle">À propos</h2>
-    <p id="aboutText">YoungWork SARL est une entreprise dynamique...</p>
-  </section>
-
-  <section class="section" id="services">
-    <h2 id="servicesTitle">Nos Services</h2>
-    <ul>
-      <li id="s1">Construction & Génie Civil: Réalisation de projets complets...</li>
-      <li id="s2">🌿 Aménagement Paysager & Nettoyage: Création de parcs...</li>
-      <li id="s3">🛠️ Location de Matériel: Grues, camions...</li>
-      <li id="s4">🔧 Maintenance Industrielle: Inspection, réparation...</li>
-    </ul>
-  </section>
-
-  <section class="section" id="realisations">
-    <h2 id="realTitle">Nos Réalisations</h2>
-    <p id="realText">La société est encore jeune.</p>
-  </section>
-
-  <section class="section" id="contact">
-    <h2 id="contactTitle">Contactez-nous</h2>
-    <p>MEARADI Fakhreddine - +212 666 257 924</p>
-    <p>RAQI Mouhcine - +212 603 052 072</p>
-    <p>MAACH Mouhcine - +212 624 438 135</p>
-    <p>GRAIDI Mohammed - +212 641 681 312</p>
-
-    <form action="https://formspree.io/f/mldbvrnj" method="POST">
-      <input type="text" name="name" placeholder="Votre nom" required />
-      <input type="email" name="email" placeholder="Votre e-mail" required />
-      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
-
+  <main>
+    <section id="about">
+      <h2>À propos de nous</h2>
+      <p>Bienvenue chez YoungWork SARL. Nous construisons l'avenir avec passion et expertise.</p>
+    </section>
+    <section id="services">
+      <h2>Nos Services</h2>
+      <p>Nous proposons des services de construction, d'ingénierie civile, de nettoyage, et plus encore.</p>
+    </section>
+    <section id="realisations">
+      <h2>Nos Réalisations</h2>
+      <p>Découvrez nos projets les plus marquants et nos réussites professionnelles.</p>
+    </section>
+    <section id="contact">
+      <h2>Contactez-nous</h2>
+      <p>Pour toute demande, contactez-nous via nos réseaux sociaux ou notre numéro de téléphone.</p>
+    </section>
+  </main>
+  <button id="backToTop" title="Retour en haut">⬆️</button>
   <footer>
-    © 2025 YoungWork SARL - Tous droits réservés
+    &copy; 2025 YoungWork SARL - Tous droits réservés.
   </footer>
-
-  <button class="admin-btn" onclick="promptAdmin()">Admin</button>
-  <a href="https://wa.me/212666257924" class="whatsapp-btn" target="_blank">📞 WhatsApp</a>
-
   <script>
-    const translations = {
-      fr: {
-        dir: "ltr",
-        slogan: "Construisons Demain, Naturellement.",
-        aboutTitle: "À propos",
-        aboutText: "YoungWork SARL est une entreprise dynamique et innovante...",
-        servicesTitle: "Nos Services",
-        s1: "Construction & Génie Civil: Réalisation de projets complets...",
-        s2: "🌿 Aménagement Paysager & Nettoyage: Création de parcs...",
-        s3: "🛠️ Location de Matériel: Grues, camions...",
-        s4: "🔧 Maintenance Industrielle: Inspection, réparation...",
-        realTitle: "Nos Réalisations",
-        realText: "La société est encore jeune.",
-        contactTitle: "Contactez-nous",
-        navAbout: "À propos",
-        navServices: "Services",
-        navRealisations: "Réalisations",
-        navContact: "Contact"
-      },
-      ar: {
-        dir: "rtl",
-        slogan: "لنُشيد المستقبل بشكل طبيعي",
-        aboutTitle: "حول الشركة",
-        aboutText: "شركة YoungWork SARL هي مؤسسة ديناميكية ومبتكرة...",
-        servicesTitle: "خدماتنا",
-        s1: "البناء والهندسة المدنية: تنفيذ مشاريع كاملة...",
-        s2: "🌿 التنسيق والتنظيف: إنشاء حدائق...",
-        s3: "🛠️ تأجير المعدات: رافعات، شاحنات...",
-        s4: "🔧 الصيانة الصناعية: فحص، إصلاح...",
-        realTitle: "إنجازاتنا",
-        realText: "الشركة لا تزال جديدة.",
-        contactTitle: "اتصل بنا",
-        navAbout: "حول",
-        navServices: "الخدمات",
-        navRealisations: "الإنجازات",
-        navContact: "اتصال"
-      },
-      ber: {
-        dir: "ltr",
-        slogan: "Nsenker azekka s tura",
-        aboutTitle: "ⵉⴷⵔⴰⵏ",
-        aboutText: "YoungWork SARL d taddart n ifkaren akked taɣect...",
-        servicesTitle: "Imsaɣen nneɣ",
-        s1: "ⵙⵙⴰⵏⵜ ⵓⵙⵙⵉ ⴷ ⵉⵏⴷⵓⵔⵉⴳⵉ: iklesen ummidan...",
-        s2: "🌿 Asefru akked tanzagt: tkemmilt n igarden...",
-        s3: "🛠️ Asrent n yiberdan: imuddan, lcamionat...",
-        s4: "🔧 Taεmilt: abrus, asnifel...",
-        realTitle: "Iselkan nneɣ",
-        realText: "Taddart ayen n yir awal.",
-        contactTitle: "ⴰⴷⴷⴰⵔ ⵏⵓ",
-        navAbout: "ⴰⵏⵙⵙⴰⵏ",
-        navServices: "ⵉⵎⵙⴰⵖⵏ",
-        navRealisations: "ⵉⵙⴻⵍⴽⴰⵏ",
-        navContact: "ⴰⴷⴷⴰⵔ"
+    const btnBack = document.getElementById('backToTop');
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 300) {
+        btnBack.style.display = 'block';
+      } else {
+        btnBack.style.display = 'none';
       }
     };
-
-    function changeLanguage(lang) {
-      const t = translations[lang];
-      document.documentElement.dir = t.dir;
-      document.getElementById("slogan").innerText = t.slogan;
-      document.getElementById("aboutTitle").innerText = t.aboutTitle;
-      document.getElementById("aboutText").innerText = t.aboutText;
-      document.getElementById("servicesTitle").innerText = t.servicesTitle;
-      document.getElementById("s1").innerText = t.s1;
-      document.getElementById("s2").innerText = t.s2;
-      document.getElementById("s3").innerText = t.s3;
-      document.getElementById("s4").innerText = t.s4;
-      document.getElementById("realTitle").innerText = t.realTitle;
-      document.getElementById("realText").innerText = t.realText;
-      document.getElementById("contactTitle").innerText = t.contactTitle;
-      document.getElementById("navAbout").innerText = t.navAbout;
-      document.getElementById("navServices").innerText = t.navServices;
-      document.getElementById("navRealisations").innerText = t.navRealisations;
-      document.getElementById("navContact").innerText = t.navContact;
-    }
-
-    function promptAdmin() {
-      const code = prompt("أدخل كود التعديل:");
-      if (code === "Ea150311") {
-        window.location.href = "admin.html";
-      } else {
-        alert("رمز غير صحيح.");
-      }
-    }
-  </script>
-
-  <!-- Tawk.to Chatbot -->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/682a6ba4f062c51916e07f5a/1irir8umf';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
+    btnBack.onclick = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   </script>
 </body>
 </html>
