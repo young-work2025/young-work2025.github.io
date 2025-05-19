@@ -103,13 +103,20 @@
     <label for="socialLinkedin">رابط لينكدإن:</label>
     <input type="url" id="socialLinkedin" placeholder="https://linkedin.com/in/yourprofile">
 
-    <p class="note">⚠️ لا تنسى نسخ الكود الناتج من النافذة الجديدة.</p>
+    <p class="note">⚠️ لا تنسى نسخ الكود الناتج ولصقه في ملفات موقعك.</p>
 
     <input type="submit" value="معاينة التعديلات">
+    <button type="button" class="copy-btn" onclick="copyGeneratedCode()">📋 نسخ الكود الناتج</button>
   </form>
+
+  <div id="preview">
+    <h2>المعاينة:</h2>
+    <div id="previewArea"></div>
+  </div>
 
   <script>
     const form = document.getElementById("adminForm");
+    const previewArea = document.getElementById("previewArea");
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
@@ -125,7 +132,7 @@
       const socialTwitter = document.getElementById("socialTwitter").value.trim() || "#";
       const socialLinkedin = document.getElementById("socialLinkedin").value.trim() || "#";
 
-      const generatedHTML = `<!DOCTYPE html>
+      const generatedHTML = <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -148,7 +155,7 @@
       font-family: 'Poppins', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      ${bgImage ? `background-image: url('${bgImage}'); background-size: cover; background-position: center;` : ''}
+      ${bgImage ? background-image: url('${bgImage}'); background-size: cover; background-position: center; : ''}
     }
     header {
       background-color: var(--main-color);
@@ -289,36 +296,32 @@
     @media (max-width: 768px) {
       .services {
         flex-direction: column;
+        gap: 20px;
       }
-      main {
-        margin: 140px 20px 40px;
-        padding: 20px;
+      nav {
+        display: none; /* اختياري، يمكنك تعديل */
       }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
     <img src="${logoUrl}" alt="Logo" />
     <nav>
-      <a href="#home">Accueil</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Projets</a>
-      <a href="#contact">Contact</a>
+      <a href="#services">الخدمات</a>
+      <a href="#portfolio">المشاريع</a>
+      <a href="#contact">اتصل بنا</a>
     </nav>
   </header>
-  <main id="home">
+  <main>
     <h1>${title}</h1>
     <p class="slogan">${slogan}</p>
 
     <section id="services" class="services">
-      <div class="service-item"><i class="fas fa-hard-hat"></i><br>Bâtiment</div>
-      <div class="service-item"><i class="fas fa-tree"></i><br>Aménagement paysager</div>
-      <div class="service-item"><i class="fas fa-broom"></i><br>Nettoyage</div>
-      <div class="service-item"><i class="fas fa-shield-alt"></i><br>Sécurité</div>
-      <div class="service-item"><i class="fas fa-tools"></i><br>Location d'équipements</div>
-      <div class="service-item"><i class="fas fa-industry"></i><br>Maintenance industrielle</div>
+      <div class="service-item">خدمة 1</div>
+      <div class="service-item">خدمة 2</div>
+      <div class="service-item">خدمة 3</div>
     </section>
 
     <section id="portfolio" class="portfolio">
@@ -330,64 +333,54 @@
 
     <section id="contact">
       <h2>Contactez-nous</h2>
-      <div class="contact-info">${contactInfo.replace(/\n/g, "<br>")}</div>
+      <div class="contact-info">${contactInfo.replace(/\n/g, '<br>')}</div>
       <div class="social-links">
-        <a href="${socialFacebook}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="${socialTwitter}" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="${socialLinkedin}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="${socialFacebook}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+        <a href="${socialTwitter}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+        <a href="${socialLinkedin}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       </div>
     </section>
   </main>
-  <button id="backToTop" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+
+  <button id="backToTop" title="Retour en haut">&#8679;</button>
 
   <footer>
-    © 2025 ${title} - Tous droits réservés
+    &copy; ${new Date().getFullYear()} ${title}. Tous droits réservés.
   </footer>
 
   <script>
-    // زر العودة للأعلى
-    const backToTopBtn = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.style.display = "block";
+    // ظهور زر العودة للأعلى عند النزول
+    const btnBack = document.getElementById('backToTop');
+    window.onscroll = () => {
+      if(document.documentElement.scrollTop > 300) {
+        btnBack.style.display = 'flex';
       } else {
-        backToTopBtn.style.display = "none";
+        btnBack.style.display = 'none';
       }
-    });
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
-</body>
-</html>`;
-
-      // فتح نافذة جديدة مع عرض الكود بشكل آمن
-      const newWindow = window.open("", "_blank");
-      newWindow.document.write(`
-        <html>
-          <head>
-            <title>كود الموقع الناتج - YoungWork SARL</title>
-            <style>
-              body { font-family: monospace; white-space: pre-wrap; padding: 20px; background: #f9f9f9; }
-              pre { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow-x: auto; }
-            </style>
-          </head>
-          <body>
-            <h2>انسخ الكود أدناه واستخدمه لملف موقعك</h2>
-            <pre>${escapeHtml(generatedHTML)}</pre>
-          </body>
-        </html>
-      `);
-
-      // دالة تعقيم النصوص للحماية
-      function escapeHtml(text) {
-        return text.replace(/&/g, "&amp;")
-                   .replace(/</g, "&lt;")
-                   .replace(/>/g, "&gt;")
-                   .replace(/"/g, "&quot;")
-                   .replace(/'/g, "&#039;");
-      }
-    });
+    };
+    btnBack.onclick = () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    };
   </script>
 </body>
 </html>
+;
+
+      previewArea.textContent = generatedHTML;
+    });
+
+    function copyGeneratedCode() {
+      const text = document.getElementById("previewArea").textContent;
+      if (!text) {
+        alert("لا يوجد كود للنسخ، يرجى الضغط على معاينة أولاً.");
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ تم نسخ الكود بنجاح!");
+      }).catch(() => {
+        alert("❌ حدث خطأ أثناء النسخ.");
+      });
+    }
+  </script>
+</body>
+</html> 
